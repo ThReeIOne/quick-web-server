@@ -1,6 +1,8 @@
-# quick_web_golang
-快速搭建WEB（Golang版）
-
+#
+#### download
+```shell
+go mod download
+```
 #### run docker
 ```shell
 docker-compose -f deploy/docker-compose-local.yaml up -d
