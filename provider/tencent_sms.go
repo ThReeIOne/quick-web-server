@@ -2,7 +2,11 @@ package provider
 
 import (
 	"fmt"
+	"github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common"
+	"github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common/profile"
+	sms "github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/sms/v20210111"
 	"quick_web_golang/config"
+	"quick_web_golang/lib"
 )
 
 type TencentSms struct {

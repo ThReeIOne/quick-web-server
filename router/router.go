@@ -1,12 +1,12 @@
 package router
 
 import (
-	"cemeta-resource/config"
-	"cemeta-resource/controller"
-	"cemeta-resource/lib"
-	"cemeta-resource/middleware"
 	"fmt"
 	"net/http"
+	"quick_web_golang/config"
+	"quick_web_golang/controller"
+	"quick_web_golang/lib"
+	"quick_web_golang/middleware"
 
 	"github.com/gin-gonic/gin"
 )

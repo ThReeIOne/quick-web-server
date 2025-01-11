@@ -10,6 +10,8 @@ import (
 	"time"
 )
 
+// 这里放的是session相关，部分操作被我注销，暂时不使用
+
 type Session struct {
 	Manager *scs.SessionManager
 }
@@ -27,7 +29,7 @@ func (s *Session) Start() {
 	if day, err := strconv.Atoi(config.Get(config.SessionLifeDay)); err == nil && day > 0 {
 		lifeTime = time.Duration(day) * 24 * time.Hour
 	}
-	s.Manager.Cookie.Name = config.Get(config.CookieName)
+	//s.Manager.Cookie.Name = config.Get(config.CookieName)
 	s.Manager.Cookie.SameSite = http.SameSiteNoneMode
 	s.Manager.Cookie.Persist = true
 	s.Manager.Lifetime = lifeTime
