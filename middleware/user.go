@@ -6,6 +6,7 @@ import (
 	"quick_web_golang/lib"
 )
 
+// Auth router引入middleware.Auth()，对相关接口登录鉴权
 func Auth() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		token := c.GetHeader(lib.HeaderXToken)
