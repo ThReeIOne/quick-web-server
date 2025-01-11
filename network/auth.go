@@ -8,11 +8,6 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/metadata"
 	"google.golang.org/grpc/status"
-	"google.golang.org/protobuf/proto"
-	"quick_web_golang/lib"
-	"quick_web_golang/log"
-	pb "quick_web_golang/protos"
-	"quick_web_golang/provider"
 	"strings"
 )
 
@@ -146,24 +141,24 @@ func WrapServerStream(stream grpc.ServerStream) *WrappedServerStream {
 	return &WrappedServerStream{ServerStream: stream, WrappedContext: stream.Context()}
 }
 
-func Handler(ctx context.Context, method string) (context.Context, error) {
-	methodDesc, ok := MethodDescriptor[method]
-	if !ok {
-		return ctx, nil
-	}
-	if !proto.HasExtension(methodDesc.GetMethodOptions(), pb.E_Auth) {
-		return ctx, nil
-	}
-
-	sessionId := ExtractIncoming(ctx).Get(lib.SessionId)
-
-	ctx = context.WithValue(ctx, lib.SessionId, sessionId)
-
-	ctx, err := provider.SessionManager.Manager.Load(ctx, sessionId)
-	if err != nil {
-		_ = log.Error(err)
-		return nil, status.Errorf(codes.Internal, "internal error")
-	}
-
-	return ctx, nil
-}
+//func Handler(ctx context.Context, method string) (context.Context, error) {
+//	methodDesc, ok := MethodDescriptor[method]
+//	if !ok {
+//		return ctx, nil
+//	}
+//	if !proto.HasExtension(methodDesc.GetMethodOptions(), pb.E_Auth) {
+//		return ctx, nil
+//	}
+//
+//	sessionId := ExtractIncoming(ctx).Get(lib.SessionId)
+//
+//	ctx = context.WithValue(ctx, lib.SessionId, sessionId)
+//
+//	ctx, err := provider.SessionManager.Manager.Load(ctx, sessionId)
+//	if err != nil {
+//		_ = log.Error(err)
+//		return nil, status.Errorf(codes.Internal, "internal error")
+//	}
+//
+//	return ctx, nil
+//}

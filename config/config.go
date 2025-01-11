@@ -3,35 +3,58 @@ package config
 import "os"
 
 const (
-	IsDev          = "DEBUG"
-	LogLevel       = "LOG_LEVEL"
-	DBHost         = "DB_HOST"
-	DBReadPort     = "DB_PORT"
-	DBDatabase     = "DB_DATABASE"
-	DBReadUsername = "DB_USERNAME"
-	DBReadPassword = "DB_PASSWORD"
-	RedisAddr      = "REDIS_ADDR"
-	RedisPassword  = "REDIS_PASSWORD"
-	GatewayAddress = "GATEWAY_ADDRESS"
-	GrpcAddress    = "GRPC_ADDRESS"
-	SessionLifeDay = "SESSION_LIFE_DAY"
-	CookieName     = "COOKIE_NAME"
+	Version              = "VERSION"
+	IsDev                = "DEBUG"
+	EnableNetwork        = "ENABLE_NETWORK"
+	LogLevel             = "LOG_LEVEL"
+	ApiPathPrefix        = "API_PATH_PREFIX"
+	DBHost               = "DB_HOST"
+	DBPort               = "DB_PORT"
+	DBDatabase           = "DB_DATABASE"
+	DBUsername           = "DB_USERNAME"
+	DBPassword           = "DB_PASSWORD"
+	RedisAddr            = "REDIS_ADDR"
+	RedisPassword        = "REDIS_PASSWORD"
+	GatewayAddress       = "GATEWAY_ADDRESS"
+	SessionLifeDay       = "SESSION_LIFE_DAY"
+	JwtSignKey           = "JWT_SIGN_KEY"
+	JwtBufferTime        = "JWT_BUFFER_TIME"
+	JwtExpiredTime       = "JWT_EXPIRED_TIME"
+	JwtIssuer            = "JWT_ISSUER"
+	TencentCosSecretKey  = "TENCENT_COS_SECRET_KEY"
+	TencentCosSecretId   = "TENCENT_COS_SECRET_ID"
+	TencentCosBasePath   = "TENCENT_COS_BASE_PATH"
+	TencentCosBucket     = "TENCENT_COS_BUCKET"
+	TencentCosRegion     = "TENCENT_COS_REGION"
+	TencentSMSSecretId   = "TENCENT_SMS_SECRET_ID"
+	TencentSMSSecretKey  = "TENCENT_SMS_SECRET_KEY"
+	TencentSmsAppId      = "TENCENT_SMS_APP_ID"
+	TencentSmsTemplateId = "TENCENT_SMS_TEMPLATE_ID"
+	TencentSmsSignId     = "TENCENT_SMS_SIGN_ID"
+	TencentSmsRegion     = "TENCENT_SMS_REGION"
+	RedeemCodeLength     = "REDEEM_CODE_LENGTH"
 )
 
 var defaults = map[string]string{
-	IsDev:          "true",
-	LogLevel:       "0",
-	DBHost:         "127.0.0.1",
-	DBDatabase:     "quick_web",
-	DBReadUsername: "root",
-	DBReadPassword: "123456",
-	DBReadPort:     "3306",
-	RedisAddr:      "127.0.0.1:6379",
-	RedisPassword:  "123456",
-	GatewayAddress: "0.0.0.0:3000",
-	GrpcAddress:    "0.0.0.0:8000",
-	SessionLifeDay: "1",
-	CookieName:     "quick_web",
+	IsDev:            "true",
+	EnableNetwork:    "false",
+	LogLevel:         "info",
+	ApiPathPrefix:    "/api",
+	DBHost:           "127.0.0.1",
+	DBPort:           "3306",
+	DBDatabase:       "resource",
+	DBUsername:       "root",
+	DBPassword:       "123456",
+	RedisAddr:        "127.0.0.1:6379",
+	GatewayAddress:   "0.0.0.0:3000",
+	SessionLifeDay:   "1",
+	JwtSignKey:       "CeMetaResource",
+	JwtBufferTime:    "1d",
+	JwtExpiredTime:   "7d",
+	JwtIssuer:        "CeMeta",
+	TencentCosRegion: "ap-beijing",
+	TencentSmsRegion: "ap-beijing",
+	RedeemCodeLength: "16",
 }
 
 func Get(key string) string {
