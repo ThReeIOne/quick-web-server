@@ -1,0 +1,25 @@
+# More info: https://pre-commit.com/hooks.html
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      - id: check-case-conflict
+      - id: check-merge-conflict
+      - id: check-yaml
+      - id: check-toml
+      - id: check-xml
+      - id: check-json
+      - id: requirements-txt-fixer
+      - id: end-of-file-fixer
+      - id: mixed-line-ending
+      - id: trailing-whitespace
+      - id: check-added-large-files
+      - id: detect-private-key
+  - repo: https://github.com/golangci/golangci-lint
+    rev: v1.59.1
+    hooks:
+      - id: golangci-lint-full
+  - repo: https://github.com/troian/pre-commit-golang
+    rev: ab57c5db44bbeeae1031a2e9c2889367f8387d59
+    hooks:
+      - id: go-fmt
