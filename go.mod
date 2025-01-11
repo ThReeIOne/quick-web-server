@@ -1,4 +1,4 @@
-module quick_web_golang
+	module quick_web_golang
 
 go 1.20
 
